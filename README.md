@@ -1,4 +1,4 @@
-# Next.js Portfolio
+<!-- # Next.js Portfolio
 
 A modern portfolio built with Next.js, React, and TypeScript.
 
@@ -71,4 +71,4 @@ The site is configured for static export. Deploy the `out/` directory to:
 ## License
 
 MIT
-
+ -->
