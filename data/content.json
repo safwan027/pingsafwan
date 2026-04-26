@@ -1,0 +1,38 @@
+{
+  "about": "Born at Kozhikode,Kerala.<br> I am a software engineer who is keen on finding solutions for issues that pass by my situations, and ponder on them.I encourages purpose driven approach, critical thinking and i also keep activities that bring consciousness within minds. <br><br> Apart from my laptop hours, I indulge in football, watch football, also try very hard to read books and write. Travelling also helps me get the important break that we need in life. If travel wont happen, i will fall on chai then.",
+  "blog": [
+    {
+      "id": "1777088346536",
+      "title": "Travel",
+      "content": "Travel opens your mind and changes the way you see the world. It allows you to step outside your comfort zone and experience something completely new. Every journey teaches you lessons that no classroom can provide. When you travel, you begin to understand different cultures, traditions, and ways of life. You learn to appreciate diversity and respect differences. Travel brings a sense of freedom that is hard to find elsewhere. It allows you to break away from routine and discover something meaningful. Every place you visit leaves a mark on your heart. The people you meet along the way often become part of your story. Travel is not just about visiting places but about experiencing life deeply. You see mountains that make you feel small and oceans that make you feel calm. You walk through cities that never sleep and villages that move at their own pace. Travel teaches patience when things do not go as planned. Delays and unexpected changes become part of the adventure. You learn to adapt and move forward. Travel also helps you discover yourself. It gives you time to think and reflect. When you are away from everything familiar, you begin to understand what truly matters. Food becomes an important part of the journey as you taste flavors you have never experienced before. Every dish tells a story of its origin. Language may be different, but smiles are universal. Even without words, connections can be formed. Travel makes you more confident and independent. You learn to solve problems on your own. You become more aware of the world around you. Nature feels more alive when you explore it closely. Watching a sunrise in a new place feels magical. Seeing a sunset after a long day of travel feels rewarding. Roads become stories and destinations become memories. Travel is not always comfortable, but it is always worth it. It teaches you resilience and strength. You learn to carry less and experience more. Material things lose importance, and moments become valuable. Travel also helps you understand history better. Visiting historical places makes the past feel real. You begin to connect with stories that shaped the world. Travel creates a sense of gratitude. You appreciate what you have and understand what others live without. It brings perspective and clarity. The world feels both bigger and smaller at the same time. Bigger because there is so much to explore and smaller because we are all connected. Travel also brings excitement and curiosity. Every turn can lead to something unexpected. It keeps you engaged and alive. Memories created during travel stay forever. Photos may fade, but feelings remain. Travel can be solo or shared with others. Solo travel teaches independence, while group travel builds bonds. Both have their own beauty. You learn to enjoy your own company and also value companionship. Travel can be slow and peaceful or fast and adventurous. It depends on how you choose to experience it. There is no right or wrong way to travel. What matters is the experience. Travel also teaches respect for nature. You see how beautiful and fragile the environment is. It makes you more responsible. You begin to care about preserving what you see. Travel stories often become the best conversations. They connect people and inspire others. Listening to others’ journeys can motivate you to explore more. Travel also brings challenges, but those challenges shape you. You grow stronger with every experience. Travel makes life more meaningful. It adds depth and richness to your story. It reminds you that life is not just about staying in one place. It is about moving, exploring, and learning. Travel is a journey of both the world and the self. It changes your perspective and helps you grow. It teaches lessons that stay with you forever. It gives you memories that you will cherish for a lifetime. Travel is not just an activity; it is a way of life.",
+      "date": "25-04-2026",
+      "": ""
+    },
+    {
+      "id": "1777088451224",
+      "title": "football",
+      "content": "Football is one of the most popular sports in the world and is loved by millions of people across different countries. It is played between two teams, each consisting of eleven players, with the main objective of scoring goals by putting the ball into the opponent’s net. The game is played on a rectangular field called a pitch, with a goalpost at each end. Football requires a combination of skill, speed, strength, and teamwork. Players must pass the ball accurately, dribble past opponents, and take precise shots to score goals. Goalkeepers play a crucial role by preventing the opposing team from scoring. A standard football match lasts for ninety minutes, divided into two halves, and is controlled by a referee who ensures fair play. Football is not just about physical ability but also about strategy and quick decision-making. Coaches train players to follow tactics and work together as a unit. The sport teaches discipline, teamwork, and perseverance. Fans around the world support their favorite teams with great passion, filling stadiums with energy and excitement. Football also creates strong emotions, from the joy of winning to the lessons learned in defeat. It brings people together regardless of language, culture, or background, making it a truly global game. From small street matches to grand international tournaments, football continues to inspire, entertain, and unite people everywhere.",
+      "date": "25-04-2026"
+    },
+    {
+      "id": "1777088874623",
+      "title": "test",
+      "content": "Travel opens your mind and changes the way you see the world. It allows you to step outside your comfort zone and experience something completely new. Every journey teaches you lessons that no classroom can provide. <br><br>When you travel, you begin to understand different cultures, traditions, and ways of life.",
+      "date": "testdate"
+    }
+  ],
+  "projects": [
+    {
+      "id": "1777040885777",
+      "title": "Easytrack",
+      "desc": "A lightweight whatsapp native ticket management chrome extension. Targeted for the SME companies handling customer support through whatsapp.Developed EasyTrack, a tracking web app using Javascript and designed the full-stack architecture solo, from database schema to responsive frontend UI.",
+      "link": "https://chromewebstore.google.com/detail/hlfncjimdimbhimobimoifmaphjfahhe?utm_source=item-share-cb"
+    },
+    {
+      "id": "1777105384929",
+      "title": "test",
+      "desc": "test desc",
+      "link": "null"
+    }
+  ]
+}
