@@ -566,3 +566,121 @@ html {
 
   transition: background-color 0.5s ease;
 } */
+/* ── MOBILE RESPONSIVE ── */
+@media (max-width: 600px) {
+
+  /* Header: stack name above nav on small screens */
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding-bottom: 14px;
+  }
+
+  .site-nav {
+    gap: 16px;
+  }
+
+  .nav-item {
+    font-size: 13px;
+  }
+
+  /* Resume contact line: stack vertically */
+  .resume-contact-line {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  /* Resume entry header: stack role/period vertically */
+  .r-entry-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+
+  /* Terminal: fit within screen width */
+  #terminal {
+    width: 92vw !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  /* Footer: stack vertically */
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* Blog list: make date wrap nicely */
+  .blog-ul li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 4px;
+  }
+
+  /* Prevent global padding override on small screens */
+  * {
+    padding: 0;
+  }
+
+  /* Restore intentional paddings that * wiped */
+  .skill { padding: 3px 10px; }
+  .tag { padding: 2px 10px; }
+  .term-bar { padding: 12px 16px; }
+  .term-body { padding: 16px; }
+  .project { padding: 20px 0; }
+  .r-section { margin-bottom: 28px; }
+}
+
+/* ── HAMBURGER / MOBILE NAV ── */
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--dark);
+  padding: 0;
+  line-height: 1;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: block;
+    position: absolute;
+    right: clamp(16px, 5vw, 60px);
+    top: 36px;
+  }
+
+  .site-header {
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    padding: 16px 0 8px;
+    border-top: 1px solid var(--faint);
+    margin-top: 10px;
+  }
+
+  .mobile-nav .nav-item {
+    font-size: 16px;
+  }
+}

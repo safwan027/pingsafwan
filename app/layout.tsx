@@ -13,7 +13,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body style={{ marginLeft: 250, marginRight: 250 }}>{children}</body>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
+      <body style={{ maxWidth: '860px', margin: '0 auto', padding: '36px clamp(16px, 5vw, 60px) 80px' }}>
+        {children}
+      </body>
     </html>
   );
 }
