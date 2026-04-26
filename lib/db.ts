@@ -22,11 +22,8 @@ export interface ContentData {
   projects: Project[];
 }
 
-// const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
-// const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? process.env.SUPABASE_SERVICE_KEY;
-
-const SUPABASE_URL = `https://exgpjjgnjstharvewcqz.supabase.co`;
-const SUPABASE_SERVICE_ROLE_KEY = `sb_publishable_K5BWcCA8vd98XFpDXhFWng_OIr396uq`;
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const SUPABASE_SERVICE_ROLE_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 
 if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
