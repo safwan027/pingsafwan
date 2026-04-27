@@ -9,6 +9,7 @@ import {
   BlogPost,
   Project,
 } from '@/./lib/contentClient';
+import { verifyPassword } from '../actions';
 
 interface AdminTerminalProps {
   open: boolean;
@@ -52,7 +53,9 @@ export default function AdminTerminal({ open, onClose }: AdminTerminalProps) {
     setInput('');
 
     if (!authed) {
-      if (trimmedInput === 'safwan99') {
+      addOutput('checking credentials...', 'text-blue-400');
+      const isValid = await verifyPassword(trimmedInput);
+      if (isValid) {
         setAuthed(true);
         addOutput('access granted', 't-ok');
         addOutput(`
