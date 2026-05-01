@@ -56,12 +56,15 @@
 
 import BlogPostClient from '@/app/blog/[id]/BlogPostClient';
 import { getContent } from '@/lib/db';
+import { fetchBlogPosts } from '@/lib/db';
 
+//let content: { blog: any[] };
 // 1. This runs on the SERVER at build time
 export async function generateStaticParams() {
   try {
-    const content = await getContent();
-    return content.blog.map((post) => ({ id: post.id }));
+    const content = await fetchBlogPosts();
+    console.log('Generating static params for blog posts:', content);
+    return content.map((post) => ({ id: post.id }));
   } catch (error) {
     console.error('Failed to generate params:', error);
     return [];
@@ -70,11 +73,17 @@ export async function generateStaticParams() {
 
 // 2. This is the Page Component
 export default async function BlogPostPage({ params }: { params: { id: string } }) {
-  const content = await getContent();
-  const post = content.blog.find((item) => item.id === params.id) ?? null;
+  const content = await fetchBlogPosts();
+  console.log('Fetched content for blog post page:', content);
+  
+  const post = content.find((item) => item.id === params.id) ?? null;
+  //console.log('Rendering post:', post);
 
   return <BlogPostClient post={post} />;
+  //return null;
 }
+
+
 
 
 

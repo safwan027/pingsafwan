@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Header from '@/app/components/Header';
 import AdminTerminal from '@/app/components/AdminTerminal';
 import { fetchContent, BlogPost } from '@/./lib/contentClient';
+import { fetchBlogPosts } from '@/lib/db';
 
 interface BlogPostProps {
   id: string;
@@ -22,8 +23,8 @@ export default function BlogPage() {
   useEffect(() => {
     const loadPosts = async () => {
       try {
-        const content = await fetchContent();
-        setPosts(content.blog || []);
+        const content = await fetchBlogPosts();
+        setPosts(content);
       } catch (error) {
         console.error('Failed to load blog posts:', error);
       }

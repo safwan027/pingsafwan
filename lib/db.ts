@@ -39,7 +39,7 @@ const BLOG_TABLE = 'blog_posts';
 const PROJECT_TABLE = 'projects';
 const SETTINGS_TABLE = 'settings';
 
-async function getAboutText(): Promise<string> {
+export async function getAboutText(): Promise<string> {
   const { data, error } = await supabase
     .from(SETTINGS_TABLE)
     .select('value')
@@ -53,7 +53,7 @@ async function getAboutText(): Promise<string> {
   return data?.value ?? '';
 }
 
-async function fetchBlogPosts(): Promise<BlogPost[]> {
+export async function fetchBlogPosts(): Promise<BlogPost[]> {
   const { data, error } = await supabase
     .from(BLOG_TABLE)
     .select('id,title,content,tag,date')
@@ -66,7 +66,7 @@ async function fetchBlogPosts(): Promise<BlogPost[]> {
   return (data as BlogPost[]) ?? [];
 }
 
-async function fetchProjects(): Promise<Project[]> {
+export async function fetchProjects(): Promise<Project[]> {
   const { data, error } = await supabase
     .from(PROJECT_TABLE)
     .select('id,title,description,link');

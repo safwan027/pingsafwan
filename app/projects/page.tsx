@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Header from '@/app/components/Header';
 import AdminTerminal from '@/app/components/AdminTerminal';
 import { BlogPost, fetchContent, Project } from '@/./lib/contentClient';
+import { fetchProjects } from '@/lib/db';
 
 export default function ProjectsPage() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -13,9 +14,8 @@ export default function ProjectsPage() {
   useEffect(() => {
     const loadProjects = async () => {
       try {
-        const content = await fetchContent();
-        setProjects(content.projects || []);
-        setPosts(content.blog || []);
+        const content = await fetchProjects();
+        setProjects(content);
       } catch (error) {
         console.error('Failed to load projects:', error);
       }

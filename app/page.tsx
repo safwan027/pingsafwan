@@ -552,6 +552,7 @@ import me from '@/app/assets/me.jpg';
 import { fetchContent } from '@/lib/contentClient';
 import Header from '@/app/components/Header';
 import AdminTerminal from '@/app/components/AdminTerminal';
+import { getAboutText } from '@/lib/db';
 
 export default function AboutPage() {
   const [aboutText, setAboutText] = useState('');
@@ -572,8 +573,8 @@ export default function AboutPage() {
   useEffect(() => {
     const loadAbout = async () => {
       try {
-        const content = await fetchContent();
-        setAboutText(content.about);
+        const content = await getAboutText();
+        setAboutText(content);
       } catch (error) {
         console.error('Failed to load about:', error);
       }
