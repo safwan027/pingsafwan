@@ -57,6 +57,36 @@
 import BlogPostClient from '@/app/blog/[id]/BlogPostClient';
 import { getContent } from '@/lib/db';
 import { fetchBlogPosts } from '@/lib/db';
+import { Metadata } from 'next';
+
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const content = await fetchBlogPosts();
+  const post = content.find((item) => item.id === params.id);
+  
+  if (!post) {
+    return {
+      title: 'Post Not Found',
+    };
+  }
+
+  // Basic regex to strip HTML tags for the description, taking the first 160 characters
+  const plainTextDescription = post.content ? post.content.replace(/<[^>]+>/g, '').substring(0, 160) + '...' : 'Read this blog post.';
+
+  return {
+    title: post.title,
+    description: plainTextDescription,
+    openGraph: {
+      title: post.title,
+      description: plainTextDescription,
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: plainTextDescription,
+    }
+  };
+}
 
 //let content: { blog: any[] };
 // 1. This runs on the SERVER at build time
