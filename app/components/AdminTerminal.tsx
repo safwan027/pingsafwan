@@ -9,7 +9,7 @@ import {
   BlogPost,
   Project,
 } from '@/./lib/contentClient';
-import { verifyPassword } from '../actions';
+import { verifyPassword, logoutAdmin } from '../actions';
 
 interface AdminTerminalProps {
   open: boolean;
@@ -95,9 +95,10 @@ export default function AdminTerminal({ open, onClose }: AdminTerminalProps) {
 
         case 'project': {
           const [title, description, link] = parts;
-          if (!title || !description ) {
+          if (!title || !description) {
             addOutput('usage: project|title|desc|link', 't-err');
-          }  else if (!link) { const newProject: Project = {
+          } else if (!link) {
+            const newProject: Project = {
               id: Date.now().toString(),
               title,
               description,
@@ -106,8 +107,8 @@ export default function AdminTerminal({ open, onClose }: AdminTerminalProps) {
             const updated = await saveProject(newProject);
             setProjects(updated.projects);
             addOutput(`project added: ${title}`, 't-ok');
-          }  
-                    else {
+          }
+          else {
             const newProject: Project = {
               id: Date.now().toString(),
               title,
@@ -134,6 +135,7 @@ export default function AdminTerminal({ open, onClose }: AdminTerminalProps) {
         }
 
         case 'clear': {
+          await logoutAdmin();
           setOutput(['enter password to continue']);
           setAuthed(false);
           break;
@@ -151,51 +153,51 @@ export default function AdminTerminal({ open, onClose }: AdminTerminalProps) {
   if (!open) return null;
 
   return (
-  //   <div id="terminal" style={{ display: 'block' }}>
-  //     <div className="term-bar">
-  //       <span className="term-title">admin shell</span>
-  //       <span className="term-x" onClick={onClose}>
-  //         ✕
-  //       </span>
-  //     </div>
-  //     <div className="term-body">
-  //       <div id="term-out">
-  //         {output.map((line, idx) => (
-  //           <div key={idx} dangerouslySetInnerHTML={{ __html: line + '<br>' }} />
-  //         ))}
-  //       </div>
-  //       <div className="term-row">
-  //         <span className="term-prompt">›</span>
-  //         <input
-  //           ref={terminalInputRef}
-  //           type={authed ? 'text' : 'password'}
-  //           className="term-input"
-  //           value={input}
-  //           onChange={(e) => setInput(e.target.value)}
-  //           onKeyDown={(e) => {
-  //             if (e.key === 'Enter') handleSubmit();
-  //           }}
-  //         />
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
+    //   <div id="terminal" style={{ display: 'block' }}>
+    //     <div className="term-bar">
+    //       <span className="term-title">admin shell</span>
+    //       <span className="term-x" onClick={onClose}>
+    //         ✕
+    //       </span>
+    //     </div>
+    //     <div className="term-body">
+    //       <div id="term-out">
+    //         {output.map((line, idx) => (
+    //           <div key={idx} dangerouslySetInnerHTML={{ __html: line + '<br>' }} />
+    //         ))}
+    //       </div>
+    //       <div className="term-row">
+    //         <span className="term-prompt">›</span>
+    //         <input
+    //           ref={terminalInputRef}
+    //           type={authed ? 'text' : 'password'}
+    //           className="term-input"
+    //           value={input}
+    //           onChange={(e) => setInput(e.target.value)}
+    //           onKeyDown={(e) => {
+    //             if (e.key === 'Enter') handleSubmit();
+    //           }}
+    //         />
+    //       </div>
+    //     </div>
+    //   </div>
+    // );
 
-  
-  <div id="terminal" className="bg-[#121212] rounded-lg shadow-2xl w-[500px] overflow-hidden font-mono">
-  <div className="term-bar bg-[#1a1a1a] px-4 py-3 flex justify-between items-center border-b border-[#222]">
-    <span className="text-gray-500 text-sm">Admin Shell</span>
-    <span className="term-x" onClick={onClose}>✕</span>
-  </div>
-  <div className="p-6 min-h-[300px]">
-    <div id="term-out" className="text-gray-500 leading-relaxed text-sm">
-      {output.map((line, idx) => (
-        <div key={idx} dangerouslySetInnerHTML={{ __html: line + '<br>' }} />
-      ))}
-    </div>
-    <div className="flex items-center mt-4">
-      <span className="text-gray-500 mr-2"></span>
-      {/* <input
+
+    <div id="terminal" className="bg-[#121212] rounded-lg shadow-2xl w-[500px] overflow-hidden font-mono">
+      <div className="term-bar bg-[#1a1a1a] px-4 py-3 flex justify-between items-center border-b border-[#222]">
+        <span className="text-gray-500 text-sm">Admin Shell</span>
+        <span className="term-x" onClick={onClose}>✕</span>
+      </div>
+      <div className="p-6 min-h-[300px]">
+        <div id="term-out" className="text-gray-500 leading-relaxed text-sm">
+          {output.map((line, idx) => (
+            <div key={idx} dangerouslySetInnerHTML={{ __html: line + '<br>' }} />
+          ))}
+        </div>
+        <div className="flex items-center mt-4">
+          <span className="text-gray-500 mr-2"></span>
+          {/* <input
         ref={terminalInputRef}
         type={authed ? 'text' : 'password'}
         className="bg-transparent border-none outline-none text-white w-full"
@@ -203,23 +205,23 @@ export default function AdminTerminal({ open, onClose }: AdminTerminalProps) {
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
       /> */}
-      <input
-  ref={terminalInputRef}
-  type={authed ? 'text' : 'password'}
-  className="term-input" // Make sure this class matches your CSS
-  value={input}
-  onChange={(e) => setInput(e.target.value)}
-  onKeyDown={(e) => {
-    if (e.key === 'Enter') {
-      handleSubmit();
-    } else if (e.key === 'Escape') {
-      onClose(); // Trigger your function here
-    }
-  }}
-  autoFocus // Good for terminal UX
-/>
+          <input
+            ref={terminalInputRef}
+            type={authed ? 'text' : 'password'}
+            className="term-input" // Make sure this class matches your CSS
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                handleSubmit();
+              } else if (e.key === 'Escape') {
+                onClose(); // Trigger your function here
+              }
+            }}
+            autoFocus // Good for terminal UX
+          />
+        </div>
+      </div>
     </div>
-  </div>
-</div>
   );
 }

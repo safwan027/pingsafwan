@@ -62,7 +62,7 @@ import { Metadata } from 'next';
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const content = await fetchBlogPosts();
   const post = content.find((item) => item.id === params.id);
-  
+
   if (!post) {
     return {
       title: 'Post Not Found',
@@ -94,6 +94,7 @@ export async function generateStaticParams() {
   try {
     const content = await fetchBlogPosts();
     console.log('Generating static params for blog posts:', content);
+
     return content.map((post) => ({ id: post.id }));
   } catch (error) {
     console.error('Failed to generate params:', error);
@@ -104,10 +105,13 @@ export async function generateStaticParams() {
 // 2. This is the Page Component
 export default async function BlogPostPage({ params }: { params: { id: string } }) {
   const content = await fetchBlogPosts();
-  console.log('Fetched content for blog post page:', content);
-  
+
+  //const content = await generateStaticParams();
+  console.log('Fetched content for blog post page safwan:', content);
+
+
   const post = content.find((item) => item.id === params.id) ?? null;
-  //console.log('Rendering post:', post);
+  console.log('Rendering post:', post);
 
   return <BlogPostClient post={post} />;
   //return null;

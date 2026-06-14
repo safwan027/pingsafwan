@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { addBlogPost, addProject, getContent, updateAbout } from '../../../lib/db';
+import { cookies } from 'next/headers';
+import { createClient } from '@supabase/supabase-js';
 
 export async function GET() {
   const content = await getContent();
@@ -7,6 +9,25 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
+  const cookieStore = cookies();
+  const authCookie = cookieStore.get('admin_auth');
+
+  if (!authCookie || !authCookie.value) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
+  const supabaseAdmin = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+
+  const { data: isValid, error } = await supabaseAdmin
+    .rpc('verify_admin_password', { entered_password: authCookie.value });
+
+  if (error || !isValid) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
   const body = await req.json();
   const action = body?.action;
 

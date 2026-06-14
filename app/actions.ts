@@ -1,5 +1,6 @@
 'use server' // This ensures the code never runs in the browser
 import { createClient } from '@supabase/supabase-js'
+import { cookies } from 'next/headers'
 
 // app/actions.ts
 export async function verifyPassword(enteredPassword: string) {
@@ -17,6 +18,18 @@ export async function verifyPassword(enteredPassword: string) {
     return false
   }
 
+  if (data) {
+    cookies().set('admin_auth', enteredPassword, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      path: '/'
+    })
+  }
+
   return data; // Returns true or false
 }
 
+export async function logoutAdmin() {
+  cookies().delete('admin_auth')
+}

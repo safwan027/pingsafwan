@@ -6,7 +6,7 @@ import { useParams } from 'next/navigation';
 import Header from '@/app/components/Header';
 import AdminTerminal from '@/app/components/AdminTerminal';
 import { fetchContent, BlogPost } from '@/./lib/contentClient';
-import blog from  '@/data/content.json';
+import blog from '@/data/content.json';
 import BlogHeader from '@/app/components/copyhandle';
 
 
@@ -26,7 +26,7 @@ export default function BlogPostPage() {
         console.error('Failed to load blog post:', error);
       }
     };
-
+    console.log(post);
     loadPost();
   }, [postId]);
 
@@ -61,9 +61,9 @@ export default function BlogPostPage() {
         <Header />
         <div className="pane active">
           <p className="empty">Post not found.</p>
-          
+
         </div>
-       
+
         <AdminTerminal open={terminalOpen} onClose={() => setTerminalOpen(false)} />
       </>
     );
@@ -73,7 +73,7 @@ export default function BlogPostPage() {
     <>
       <Header />
       <div className="pane active">
-       
+
         <div className="blog-post" id={post.id}>
           <h1>{post.title}</h1>
           <div className="blog-meta">
@@ -82,9 +82,11 @@ export default function BlogPostPage() {
           </div>
           <div className="blog-content" dangerouslySetInnerHTML={{ __html: post.content }} />
         </div>
+
+
       </div>
 
-     {/* <button 
+      {/* <button 
   className="admin-btn" 
   style={{ fontSize: '12px', padding: '2px 8px' }} 
   onClick={handleCopy}

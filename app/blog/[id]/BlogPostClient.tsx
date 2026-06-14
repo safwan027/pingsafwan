@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Header from '@/app/components/Header';
 import AdminTerminal from '@/app/components/AdminTerminal';
 import { BlogPost } from '@/lib/contentClient';
+import DOMPurify from 'isomorphic-dompurify';
 
 export default function BlogPostClient({ post }: { post: BlogPost | null }) {
   const [terminalOpen, setTerminalOpen] = useState(false);
@@ -50,7 +51,7 @@ export default function BlogPostClient({ post }: { post: BlogPost | null }) {
 </span>
             {post.tag && <span className="blog-tag">{post.tag}</span>}
           </div>
-          <div className="blog-content" dangerouslySetInnerHTML={{ __html: post.content }} />
+          <div className="blog-content" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }} />
           {/* <div className="share-row"> */} <br/>
             <a  onClick={handleShare}>
              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" className="bi bi-clipboard" viewBox="0 0 16 16">
