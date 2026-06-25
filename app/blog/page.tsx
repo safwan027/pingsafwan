@@ -69,7 +69,7 @@ export default function BlogPage() {
                     <li>
                       <span className="blog-date-str">
                         {post.date
-                          ? new Date(post.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+                          ? post.date.split('T')[0]
                           : 'TBD'}
                       </span>
                       <span className="blog-dash">–</span>
