@@ -440,11 +440,11 @@
 // //   return (
 // //     <BrowserRouter>
 // //       <ScrollToHash /> {/* This stays here to watch for links */}
-      
+
 // //       <Routes>
 // //         {/* Your current home page with the terminal and about text */}
 // //         <Route path="/" element={<Home />} /> 
-        
+
 // //         {/* Your other pages */}
 // //         <Route path="/blog" element={<Blog />} />
 // //         <Route path="/projects" element={<Projects />} />
@@ -479,7 +479,7 @@
 //           console.error('Failed to load about:', error);
 //         }
 //       };
-  
+
 //       loadabout();
 //     }, []);
 
@@ -531,11 +531,11 @@
 
 //     <BrowserRouter>
 //       <ScrollToHash /> {/* This stays here to watch for links */}
-      
+
 //       <Routes>
 //         {/* Your current home page with the terminal and about text */}
 //         <Route path="/" element={<Home />} /> 
-        
+
 //         {/* Your other pages */}
 //         <Route path="/blog" element={<Blog />} />
 //         <Route path="/projects" element={<Projects />} />
@@ -599,9 +599,9 @@ export default function AboutPage() {
   return (
     <>
       <Header />
-      
-      <main className="pane active">
-        <div className="avatar-placeholder">
+
+      <main className="pane active" style={{ maxWidth: '860px' }}>
+        {/* <div className="avatar-placeholder">
           <img
             src={me.src}
             alt="Safwan Nasar Ahmed"
@@ -614,12 +614,12 @@ export default function AboutPage() {
               margin: '0 auto'
             }}
           />
-        </div>
+        </div> */}
 
         <div className="about-prose">
           {/* Your injected HTML content */}
           <div dangerouslySetInnerHTML={{ __html: aboutText }} />
-          
+
           {/* <p className="mt-4">
             You can find me on{' '}
             <a href="https://github.com/safwan027" target="_blank" rel="noreferrer" className="underline">
@@ -635,9 +635,9 @@ export default function AboutPage() {
       </main>
 
       {/* Admin Terminal Overlay */}
-      <AdminTerminal 
-        open={terminalOpen} 
-        onClose={() => setTerminalOpen(false)} 
+      <AdminTerminal
+        open={terminalOpen}
+        onClose={() => setTerminalOpen(false)}
       />
     </>
   );

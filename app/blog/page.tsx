@@ -50,7 +50,7 @@ export default function BlogPage() {
   return (
     <>
       <Header />
-      <div className="pane active">
+      <div className="pane active" style={{ maxWidth: '860px' }}>
         {/* <div className="blog-share-row">
           <button className="share-btn" onClick={handleSharePage}>
             Share this page
@@ -68,10 +68,10 @@ export default function BlogPage() {
                   <div className="blog-ul">
                     <li>
                       <span className="blog-date-str">
-  {post.date 
-    ? new Date(post.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) 
-    : 'TBD'}
-</span>
+                        {post.date
+                          ? new Date(post.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+                          : 'TBD'}
+                      </span>
                       <span className="blog-dash">–</span>
                       <Link href={`/blog/${post.id}`} className="blog-title-link">
                         {post.title}

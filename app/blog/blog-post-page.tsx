@@ -59,7 +59,7 @@ export default function BlogPostPage() {
     return (
       <>
         <Header />
-        <div className="pane active">
+        <div className="pane active" style={{ maxWidth: '860px' }}>
           <p className="empty">Post not found.</p>
 
         </div>
@@ -72,7 +72,7 @@ export default function BlogPostPage() {
   return (
     <>
       <Header />
-      <div className="pane active">
+      <div className="pane active" style={{ maxWidth: '860px' }}>
 
         <div className="blog-post" id={post.id}>
           <h1>{post.title}</h1>

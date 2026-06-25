@@ -18,11 +18,11 @@ export default function ResumePage() {
         if (element) {
           // Timeout ensures the DOM is fully ready
           setTimeout(() => {
-            element.scrollIntoView({ behavior: 'smooth' }); 
-            
-  // setTimeout(() => {
-  //   element.style.backgroundColor = 'transparent';
-  // }, 2000);       
+            element.scrollIntoView({ behavior: 'smooth' });
+
+            // setTimeout(() => {
+            //   element.style.backgroundColor = 'transparent';
+            // }, 2000);       
           }, 100);
         }
       }
@@ -39,7 +39,7 @@ export default function ResumePage() {
   return (
     <>
       <Header />
-      <div className="pane active">
+      <div className="pane active" style={{ maxWidth: '860px' }}>
         {/* <div className="resume-header">
           <div className="resume-name">Safwan Nasar Ahmed</div>
           <div className="resume-contact-line">
@@ -58,16 +58,16 @@ export default function ResumePage() {
         <div className="r-section">
           <div className="r-label"><b>Career Highlights</b></div>
           <p className="r-prose">
-            Software engineer with 2+ years of experience in specializing in C#, ASP.NET, and Python. Proven track record of building scalable web applications and APIs, with a passion for learning new technologies and contributing to open source projects. 
-          </p> <br /> 
-          <p className="r-prose">I built a chrome extension - Easytrack that solved a common productivity issue for Support engineers. <a href="projects/#easytrack" className="underline text-blue-400">Visit Project</a></p>  
+            Software engineer with 2+ years of experience in specializing in C#, ASP.NET, and Python. Proven track record of building scalable web applications and APIs, with a passion for learning new technologies and contributing to open source projects.
+          </p> <br />
+          <p className="r-prose">I built a chrome extension - Easytrack that solved a common productivity issue for Support engineers. <a href="projects/#easytrack" className="underline text-blue-400">Visit Project</a></p>
           {/* <p className="r-prose">I have experience  <a href="/projects/#test4" className="underline text-blue-400">Check out</a> .</p>
            <p className="r-prose">I have experience  <a href="/blog/1777088346536" className="underline text-blue-400">Check out</a> .</p> */}
 
         </div>
 
         <div className="r-section">
-       <p className="r-prose">
+          <p className="r-prose">
             {/* <a href="#edu" className="underline text-blue-400">my education</a> */}
           </p>
           <p className="r-label"><b>Professional Experience</b></p>
@@ -90,7 +90,7 @@ export default function ResumePage() {
         </div>
 
         <div className="r-section" id="edu">
-        <div className="r-label"><b>Education</b></div>
+          <div className="r-label"><b>Education</b></div>
           <div className="label">Bachelor of Computer Applications</div>
           <div className="label">Mar 2020 - Jun 2023</div>
         </div>

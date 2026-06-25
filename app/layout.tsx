@@ -47,7 +47,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body style={{ maxWidth: '860px', margin: '0 auto', padding: '36px clamp(16px, 5vw, 60px) 80px' }}>
+      <body style={{ maxWidth: '860px', margin: '0 auto' }}>
         {children}
       </body>
     </html>

@@ -34,11 +34,11 @@ export default function ProjectsPage() {
         if (element) {
           // Timeout ensures the DOM is fully ready
           setTimeout(() => {
-            element.scrollIntoView({ behavior: 'smooth' }); 
-            
-  // setTimeout(() => {
-  //   element.style.backgroundColor = 'transparent';
-  // }, 2000);       
+            element.scrollIntoView({ behavior: 'smooth' });
+
+            // setTimeout(() => {
+            //   element.style.backgroundColor = 'transparent';
+            // }, 2000);       
           }, 100);
         }
       }
@@ -55,7 +55,7 @@ export default function ProjectsPage() {
   return (
     <>
       <Header />
-      <div className="pane active">
+      <div className="pane active" style={{ maxWidth: '860px' }}>
         <div id="projects-list">
           {projects.length === 0 ? (
             <p className="empty"></p>
@@ -65,12 +65,12 @@ export default function ProjectsPage() {
                 {/* <div className="project-name">{proj.title}</div> */}
                 <div dangerouslySetInnerHTML={{ __html: proj.description }} />
                 {/* <div className="project-desc">{proj.description}</div> */}
-                { proj.link !== 'null' && (
-                <a href={proj.link} className="project-link" target="_blank" rel="noreferrer">
-                  Visit {proj.title} 
-                </a>
+                {proj.link !== 'null' && (
+                  <a href={proj.link} className="project-link" target="_blank" rel="noreferrer">
+                    Visit {proj.title}
+                  </a>
                 )}
-                  {/* <a href={`/blog/1777088451224`} className="underline text-blue-400">
+                {/* <a href={`/blog/1777088451224`} className="underline text-blue-400">
                     Read more
                   </a> */}
                 {/* {proj.id === '1777040885777' && (
@@ -89,7 +89,7 @@ export default function ProjectsPage() {
 
               </div>
             ))
-          )} 
+          )}
         </div>
       </div>
 
